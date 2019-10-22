@@ -1,13 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class SnakeHead : MonoBehaviour
 {
     public int step;
     public float velocity = 0.35f;
+    public Sprite[] sprites;
+    public GameObject snakeBody;
+    public Transform canvas;
 
     private int x;
     private int y;
     private Vector3 headPos;
+    private List<GameObject> bodyList = new List<GameObject>();
 
     private void Start()
     {
@@ -65,5 +71,23 @@ public class SnakeHead : MonoBehaviour
         //挂在哪个物体上可以直接通过gameObject获取到该物体
         headPos = gameObject.transform.localPosition;
         gameObject.transform.localPosition = new Vector3(headPos.x + x, headPos.y + y, headPos.z);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "food")
+        {
+            Destroy(collision.gameObject);
+            FoodMaker.instance.MakeFood();
+        }
+    }
+
+    void Grow()
+    {
+        GameObject gb = GameObject.Instantiate(snakeBody);
+        gb.transform.SetParent(canvas, false);
+        int index = bodyList.Count % 2 == 0 ? 1 : 0;
+        gb.GetComponent<Image>().sprite = sprites[index];
+        bodyList.Add(gb);
     }
 }

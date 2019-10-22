@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\FoodMaker.cs" />
     <Compile Include="Assets\Scripts\SnakeHead.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/mymymymymymy/unity_demo/贪吃蛇/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
