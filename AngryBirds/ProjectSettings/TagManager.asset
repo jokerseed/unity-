@@ -44,3 +44,6 @@ TagManager:
   - name: Player
     uniqueID: 1985840887
     locked: 0
+  - name: Score
+    uniqueID: 1884338367
+    locked: 0

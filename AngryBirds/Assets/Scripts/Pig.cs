@@ -56,5 +56,7 @@ public class Pig : MonoBehaviour
 
         GameObject s = Instantiate(score, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         Destroy(s, 1.5f);
+
+        GameManager._instance.pigs.Remove(this);
     }
 }

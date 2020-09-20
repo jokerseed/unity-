@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bird.cs" />
     <Compile Include="Assets\Scripts\Boom.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\PausePanel.cs" />
     <Compile Include="Assets\Scripts\Pig.cs" />
     <Reference Include="UnityEngine">
       <HintPath>E:/unityEngine/2019.4.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
