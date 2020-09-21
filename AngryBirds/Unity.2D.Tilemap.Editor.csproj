@@ -670,13 +670,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{9C9C6AF1-35A2-8962-FD17-AAA90EEE7A54}</Project>
-      <Name>UnityEditor.UI</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{94E3A5B7-3156-8D5E-F95F-6628D9CDA4E9}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{9C9C6AF1-35A2-8962-FD17-AAA90EEE7A54}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

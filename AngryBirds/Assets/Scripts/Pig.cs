@@ -9,6 +9,8 @@ public class Pig : MonoBehaviour
     public Sprite hurt;
     public GameObject boom;
     public GameObject score;
+    public AudioClip deadClip;
+    public AudioClip hurtClip;
 
     private SpriteRenderer sp;
 
@@ -42,6 +44,7 @@ public class Pig : MonoBehaviour
         else if (collision.relativeVelocity.magnitude > minSpeed)
         {
             sp.sprite = hurt;
+            PlayAudio(hurtClip);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,5 +61,12 @@ public class Pig : MonoBehaviour
         Destroy(s, 1.5f);
 
         GameManager._instance.pigs.Remove(this);
+
+        PlayAudio(deadClip);
+    }
+
+    private void PlayAudio(AudioClip ac)
+    {
+        AudioSource.PlayClipAtPoint(ac, transform.position);
     }
 }

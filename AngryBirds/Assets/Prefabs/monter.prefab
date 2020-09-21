@@ -149,3 +149,5 @@ MonoBehaviour:
   hurt: {fileID: -1044967864967615481, guid: 8b99000cb683daa4aaeab038dd06b707, type: 3}
   boom: {fileID: 4373422357110441606, guid: 0fa40b09e04e72e42983c10b53addb4f, type: 3}
   score: {fileID: 4461073460478627390, guid: 3e1b20793857dc849a010745b0454aa1, type: 3}
+  deadClip: {fileID: 8300000, guid: f7872a240c3a867458646a6a01dde6a2, type: 3}
+  hurtClip: {fileID: 8300000, guid: 53dea70923c95cb45864ff65eeb38785, type: 3}

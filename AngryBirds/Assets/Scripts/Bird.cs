@@ -9,6 +9,9 @@ public class Bird : MonoBehaviour
     public float distance;
     public GameObject left;
     public GameObject right;
+    public AudioClip selectAudio;
+    public AudioClip flyAudio;
+    public AudioClip deadAudio;
 
     [HideInInspector]
     public SpringJoint2D sj;
@@ -17,12 +20,16 @@ public class Bird : MonoBehaviour
     LineRenderer r;
     LineRenderer l;
     bool canMove = true;
+    bool isFly = false;
+
+    protected Rigidbody2D rg;
 
     private void Awake()
     {
         r = right.GetComponent<LineRenderer>();
         l = left.GetComponent<LineRenderer>();
         sj = GetComponent<SpringJoint2D>();
+        rg = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -51,12 +58,23 @@ public class Bird : MonoBehaviour
 
         float posX = transform.position.x;
         Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(Mathf.Clamp(posX, 0, 15), Camera.main.transform.position.y, Camera.main.transform.position.z), 2);
+
+        if (isFly) {
+            if (Input.GetMouseButtonDown(0)) {
+                showSkill();
+            }
+        }
+    }
+
+    public virtual void showSkill() {
+        isFly = false;
     }
 
     private void OnMouseDown()
     {
         if (canMove)
         {
+            PlayAudio(selectAudio);
             isClick = true;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             r.enabled = true;
@@ -77,8 +95,15 @@ public class Bird : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isFly = false;
+    }
+
     void fly()
     {
+        isFly = true;
+        PlayAudio(flyAudio);
         gameObject.GetComponent<SpringJoint2D>().enabled = false;
         Invoke("Dead", 3);
     }
@@ -98,5 +123,11 @@ public class Bird : MonoBehaviour
         GameManager._instance.birds.Remove(this);
         GameManager._instance.CheckWin();
         this.enabled = false;
+        Destroy(gameObject);
+    }
+
+    private void PlayAudio(AudioClip ac)
+    {
+        AudioSource.PlayClipAtPoint(ac, transform.position);
     }
 }
