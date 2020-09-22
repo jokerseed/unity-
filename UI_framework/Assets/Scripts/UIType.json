@@ -1,0 +1,32 @@
+{
+  "ld": [
+    {
+      "panelType": "ItemMessage",
+      "path": "Assets/Prefabs/UIPanel/ItemMessagePanel"
+    },
+    {
+      "panelType": "Bag",
+      "path": "Assets/Prefabs/UIPanel/BagPanel"
+    },
+    {
+      "panelType": "MainMenu",
+      "path": "Assets/Prefabs/UIPanel/MainPanel"
+    },
+    {
+      "panelType": "Shop",
+      "path": "Assets/Prefabs/UIPanel/ShopPanel"
+    },
+    {
+      "panelType": "Skill",
+      "path": "Assets/Prefabs/UIPanel/SkillPanel"
+    },
+    {
+      "panelType": "System",
+      "path": "Assets/Prefabs/UIPanel/SettingPanel"
+    },
+    {
+      "panelType": "Task",
+      "path": "Assets/Prefabs/UIPanel/TaskPanel"
+    }
+  ]
+}
